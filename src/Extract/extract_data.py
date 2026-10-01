@@ -125,28 +125,3 @@ def extract_all() -> dict:
         "database": db_df,
     }
 
-
-# =========================================================
-# 7. نقطة الدخول
-# =========================================================
-if __name__ == "__main__":
-    try:
-        data = extract_all()
-
-        print("\n===== ملخص الاستخراج =====")
-        print(f"CSV      : {len(data['csv'])} سجل")
-        print(f"API      : {len(data['api'])} سجل")
-        print(f"Database : {len(data['database'])} سجل")
-
-        print("\n===== عيّنة من CSV =====")
-        print(data["csv"].head())
-
-        print("\n===== عيّنة من API =====")
-        print(data["api"].head())
-
-        print("\n===== عيّنة من Database =====")
-        print(data["database"].head())
-
-    except Exception as e:
-        logger.error(f"❌ فشل الاستخراج: {e}")
-        raise
